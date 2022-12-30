@@ -24,7 +24,9 @@ header .logo img{
 }
 #address{
     cursor: pointer;
-    margin-left: 30%;
+    float: right;
+    right: 0;
+    padding:10px;
 }
 .loader{
     margin: 128px 19vw;
@@ -39,6 +41,11 @@ header .logo img{
     width: 30vw;
     margin-left: 6vw;
     margin-top:32px;
+
+    -webkit-filter: drop-shadow(6px 6px 0 black)
+                    drop-shadow(-6px -6px 0 black);
+    filter: drop-shadow(6px 6px 0 black) 
+            drop-shadow(-6px -6px 0 black);
 }
 .frame>img, .frame #dungeon{
     position: absolute;

@@ -26,6 +26,10 @@ header .logo img{
     cursor: pointer;
     margin-left: 30%;
 }
+.loader{
+    margin: 128px 19vw;
+    width: 4vw;
+}
 .button{
     font-size: 16px;
     cursor: pointer;
@@ -69,7 +73,9 @@ header .logo img{
     padding: 4px 0;
     width: max-content;
     height: max-content;
-    margin:8px;
+    margin:8px auto;
+    
+
 }
 .skull{
     background-color: gray;
@@ -81,9 +87,19 @@ header .logo img{
     width: 80%;
     margin: 10%;
 }
+.flex{
+    display: flex;
+}
+.flex>div{
+    flex:1;
+}
+.flex>.flex2{
+    flex:2;
+}
 .bg{
-    width: 100%;
+    width: 92%;
     position: absolute;
+    left: 34px;
     z-index: -1;
 }
 p{

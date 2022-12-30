@@ -20,7 +20,12 @@
         <div id="address"></div>
     </header>
     <content>
-        <div class="frame"><img src="./assets/ui/frame_main.png" /><div id="dungeon"></div></div>
+        <div class="frame"><img src="./assets/ui/frame_main.png" />
+            <div id="dungeon">
+                
+                <img src="./assets/ui/spinning_skull.gif" class="loader">
+            </div>
+        </div>
     </content>
     <footer></footer>
     
@@ -42,7 +47,7 @@
             graveyard:`
                 <img src="./assets/ui/title_main.png" class="title" />
                 
-                <!--<img src="./assets/ui/bg_temp.png" class="bg" />-->
+                <img src="./assets/ui/bg_temp.png" class="bg" />
                 <div class="button main" onclick="lux.changePage('graveyardStaking', 1)">Enter</div>
                 
             `,
@@ -57,7 +62,17 @@
                         </div>`
                 }
                 return `
-                    ${r}
+                    <div class="flex">
+                        <div class="flex2">
+                            ${r}
+                        </div>
+                        <div>
+                <div class="button" onclick="lux.changePage('graveyardStaking', 1)">Bury All</div>
+                <div class="button" onclick="lux.changePage('graveyardStaking', 1)">Gemii</div>
+                <div class="button" onclick="lux.changePage('graveyardStaking', 1)">Inventory</div>
+                <div class="button" onclick="lux.changePage('graveyardStaking', 1)">FAQ</div>
+                        </div>
+
                 `
             },
             dead:`
@@ -79,6 +94,9 @@
                     staring with their hollow eyes, festering and rotting, the source of their power seemingly snued out.
                     Whisper of life that had only just been uttered grew quieter and quieter until... Silence.</p>
             `,
+            market:`
+                <img src="./assets/ui/spinning_skull.gif" class="loader">
+            `
 
         }
         let graveyard={

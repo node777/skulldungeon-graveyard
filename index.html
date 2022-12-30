@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAVEYARD</title>
+    <link rel="icon" type="image/x-icon" href="./assets/ui/favicon.gif">
+    <link rel="stylesheet" href="./styles/graveyard.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./assets/logo.png">
+        </div>
+
+        <div class="button"  onclick="lux.changePage('dead')">#DEAD</div>
+        <div class="button" onclick="lux.changePage('graveyard')">GRAVEYARD</div>
+        <div class="button" onclick="lux.changePage('market')">MARKET</div>
+        <div id="address"></div>
+    </header>
+    <content>
+        <div class="frame"><img src="./assets/ui/frame_main.png" /><div id="dungeon"></div></div>
+    </content>
+    <footer></footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
+
+    <script>
+        let lux={
+            async changePage(page, f){
+                if(f){
+                     document.getElementById("dungeon").innerHTML= await elements[page]()
+                    return
+
+                }
+                document.getElementById("dungeon").innerHTML=elements[page]
+            }
+        }
+        let elements={
+            graveyard:`
+                <img src="./assets/ui/title_main.png" class="title" />
+                
+                <!--<img src="./assets/ui/bg_temp.png" class="bg" />-->
+                <div class="button main" onclick="lux.changePage('graveyardStaking', 1)">Enter</div>
+                
+            `,
+            async graveyardStaking(){
+                let res= await graveyard.fetchNFTs()
+                let r="";
+                for(n in res.nfts){
+                    r+=`<div class="skull">
+                            <img src="https://ipfs.io/ipfs/QmRfVvhHQVyPaE5aLEt11CRQfrghmfAwecwd8xj1PhLHSz/${res.nfts[n].token_id}" />
+                            #${res.nfts[n].token_id}
+                            <div class="button simple">Dig Up</div>
+                        </div>`
+                }
+                return `
+                    ${r}
+                `
+            },
+            dead:`
+                <img src="./assets/ui/title_main.png" class="title" />
+                <p>
+                    Nameless ... only whispered as to what it leaves behind... The crawling chaos... . Ancient and formless,
+                    a dark magic infecting and consuming everything in it’s way. The cursed scrolls of Murgh Argh-Nagh,
+                    the Everdamned, claim that the world would have been torn from inside. Its bowels holding the skies and
+                    its innite ether forming an insatiable vortex in its center that would endlessly devour all that is if it were to
+                    ever come out of the Abyss.
+                    And it did follow the Roar. A sickened, creeping horror crawling with hands that are not hands, whirling
+                    blindly through the Dungeon, steadily digging deeper and deeper, like a giant worm, leaving behind an
+                    ocean of lifeless skulls, scattered in the darkness.
+                    The Great Awakening was interrupted, and with it, a new page of the history of the Skull Dungeon was to be
+                    written. One by one, the legions of skulls formerly glaring with the mysterious energy of the unknown forces
+                    which breathed life into them were now falling into an inescapable decay, withering and rotting away. The
+                    dungeon was slowly turning into an immense Graveyard.
+                    Frozen in time, a terrifying painting of unimaginable danger, but still – a mere painting. Countless skulls were
+                    staring with their hollow eyes, festering and rotting, the source of their power seemingly snued out.
+                    Whisper of life that had only just been uttered grew quieter and quieter until... Silence.</p>
+            `,
+
+        }
+        let graveyard={
+            async setup(){
+                window.web3 = new Web3(window.ethereum);
+                await window.ethereum.enable();
+                graveyard.address= window.ethereum.selectedAddress
+                document.getElementById("address").innerHTML=`${graveyard.address[0]}${graveyard.address[1]}${graveyard.address[2]}${graveyard.address[3]}${graveyard.address[4]}${graveyard.address[5]}${graveyard.address[6]}...${graveyard.address[38]}${graveyard.address[39]}${graveyard.address[40]}${graveyard.address[41]}`
+                lux.changePage("graveyard")
+            },
+            async fetchNFTs(){
+
+                let res = await fetch(`https://api.nftport.xyz/v0/accounts/0x777eC7f93a9A688e8a030c0F78FC17eb94a14777?chain=ethereum&page_size=50&include=contract_information&contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b`,{
+                    headers: {
+                        'Authorization':'a89e57e3-d7e4-4cef-93ff-b7e037b8dcc0',
+                        'accept':'application/json'
+                    },
+                    
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: 'same-origin'
+                });
+                let resTest = await res.json();
+                console.log(resTest)
+                return resTest;
+            },
+            async getAssets(){
+                if(!window.ethereum){
+                    await setTimeout(()=>{
+                        alert("Please connect web3 provider")
+                        
+                    },1000)
+                }
+                if(!window.ethereum.selectedAddress){
+                    await window.ethereum.enable()
+                }
+                let r=await fetch(`https://api.opensea.io/api/v1/assets?asset_contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b&owner=${window.ethereum.selectedAddress}`, {
+                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: 'same-origin', // include, *same-origin, omit
+                    headers: {
+                    'Content-Type': 'application/json',
+                    'X-API-KEY': '29930174fbb94c91bd30a31e79153922'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                });
+                let a=await r.json()
+                play.assets=a.assets
+                console.log(play.assets)
+                let skullSelect=`
+                
+                `
+                for(asset in play.assets){
+                    skullSelect+=elements.skull(asset)
+                }
+                skullSelect+=`
+                    <div class="skull pointer rounded center topBottomPad" onclick="window.location='https://opensea.io/collection/playsk8-official'">
+                        
+                        <h1>+</h1>
+                        <h2>Add Skull</h2>
+                        <img src="./assets/opensea.webp" />
+                        
+                    </div>
+                `
+                document.getElementById("skulls").innerHTML=`
+                    Please select your skull.
+                    <div class="subtle">You currently have x SKULLS</div>
+                    <div id="skullSelect">${skullSelect}</div>
+                `
+            },
+        }
+        graveyard.setup();
+    </script>
+</body>
+</html>

@@ -16,7 +16,7 @@
             <img src="./assets/logo.png">
         </div>
 
-        <div class="button" onclick="lux.changePage('dead')">#DEAD</div>
+        <div class="button" onclick="lux.changePage('dead', 1)">#DEAD</div>
         <div class="button" onclick="lux.changePage('graveyard')">GRAVEYARD</div>
         <div class="button" onclick="window.location.href = 'https://opensea.io/collection/skull-dungeon-genesis'">
             MARKET</div>
@@ -67,19 +67,21 @@
                     </div>
                 </a>
             </div>
-            <div id="address" onclick="window.location.href = 'https://opensea.io/account'"></div>
+            <div id="address" onclick="window.location.href = 'https://opensea.io/account'"><h3>Connect Account</h3></div>
     </header>
     <content>
-        <div class="frame"><img src="./assets/ui/frame_main.png" />
+        <div class="frame"><img id="frameImg" src="./assets/ui/frame_main.png" style="display: none;"/>
             <div id="dungeon">
 
                 <img src="./assets/ui/spinning_skull.gif" class="loader">
             </div>
         </div>
-        <div id="popup" style="display: none;">
+        <div id="popupFrame" style="display: none;">
 
-            <div class="frame"><img src="./assets/ui/popup_small.png" />
+            <div class="popupFrame"><img src="./assets/ui/popup_small.png" />
             </div>
+            <div id="popup"></div>
+            <div class="overlay"></div>
         </div>
     </content>
     <footer></footer>
@@ -98,7 +100,12 @@
                 document.getElementById("dungeon").innerHTML = elements[page]
             },
             popup(element, close) {
-                document.getElementById("popup").style = "display:initial;"
+                if(close){
+                    document.getElementById("popupFrame").style = "display:none;"
+                }else{
+                    document.getElementById("popup").innerHTML = elements[element]
+                    document.getElementById("popupFrame").style = "display:initial;"
+                }
             }
         }
         let elements = {
@@ -126,23 +133,22 @@
                             ${r}
                         </div>
                         <div class="leftSide">
-                            <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">Bury</div>
+                            <div class="button v2" onclick="lux.popup('comingSoon')">Bury</div>
                             <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">Dig Up</div>
-                            <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">FAQ</div>
+                            <div class="button v2" onclick="window.location.href = 'https://skulldungeon.io/'">FAQ</div>
                         </div>
                         <div class="rightSide">
                             <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">Gemii</div>
                             <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">Inventory</div>
-                            <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">Buy Skull</div>
+                            <div class="button v2" onclick="window.location.href = 'https://opensea.io/account'">Buy Skull</div>
                         </div>
 
                 `
             },
-            dead: `
-                <img src="./assets/ui/title_main.png" class="title" />
-                <p>
+            async dead(){
+                let text = `
                     Nameless ... only whispered as to what it leaves behind... The crawling chaos... . Ancient and formless,
-                    a dark magic infecting and consuming everything in it’s way. The cursed scrolls of Murgh Argh-Nagh,
+                    a dark magic infecting and consuming everything in it's way. The cursed scrolls of Murgh Argh-Nagh,
                     the Everdamned, claim that the world would have been torn from inside. Its bowels holding the skies and
                     its innite ether forming an insatiable vortex in its center that would endlessly devour all that is if it were to
                     ever come out of the Abyss.
@@ -153,28 +159,46 @@
                     written. One by one, the legions of skulls formerly glaring with the mysterious energy of the unknown forces
                     which breathed life into them were now falling into an inescapable decay, withering and rotting away. The
                     dungeon was slowly turning into an immense Graveyard.
-                    Frozen in time, a terrifying painting of unimaginable danger, but still – a mere painting. Countless skulls were
+                    Frozen in time, a terrifying painting of unimaginable danger, but still - a mere painting. Countless skulls were
                     staring with their hollow eyes, festering and rotting, the source of their power seemingly snued out.
-                    Whisper of life that had only just been uttered grew quieter and quieter until... Silence.</p>
-            `,
+                    Whisper of life that had only just been uttered grew quieter and quieter until... Silence.`
+                    let scrollPointer=0
+                let scroll = setInterval(()=>{
+                    document.getElementById("scrollText").innerHTML+=text[scrollPointer]
+                    scrollPointer++
+                }, 25)
+                return `
+                <img src="./assets/ui/title_main.png" class="title" />
+                <p id="scrollText"></p>
+            `},
             market: `
                 <img src="./assets/ui/spinning_skull.gif" class="loader">
             `,
             connect: `
                 <h3>Please Connect your wallet first</h3>
+            `,
+            comingSoon: `
+                <h3>Coming Soon</h3>
             `
         }
         let graveyard = {
             async setup() {
                 window.web3 = new Web3(window.ethereum);
-                await window.ethereum.enable();
-                graveyard.address = window.ethereum.selectedAddress
-                document.getElementById("address").innerHTML = `${graveyard.address[0]}${graveyard.address[1]}${graveyard.address[2]}${graveyard.address[3]}${graveyard.address[4]}${graveyard.address[5]}${graveyard.address[6]}...${graveyard.address[38]}${graveyard.address[39]}${graveyard.address[40]}${graveyard.address[41]}`
+                
+                document.getElementById("frameImg").style = "display:initial;"
+                try{
+                    await window.ethereum.enable();
+                    graveyard.address = window.ethereum.selectedAddress
+                    document.getElementById("address").innerHTML = `${graveyard.address[0]}${graveyard.address[1]}${graveyard.address[2]}${graveyard.address[3]}${graveyard.address[4]}${graveyard.address[5]}${graveyard.address[6]}...${graveyard.address[38]}${graveyard.address[39]}${graveyard.address[40]}${graveyard.address[41]}`
+                }catch(e){console.log(e)}
+
                 lux.changePage("graveyard")
+
             },
             async fetchNFTs() {
-
-                let res = await fetch(`https://api.nftport.xyz/v0/accounts/	0x5552d7464daf5b2f3ffb3f8f4bef9e9b0ee2f315?chain=ethereum&page_size=50&include=contract_information&contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b`, {
+                let url=`https://api.nftport.xyz/v0/accounts/${window.ethereum.selectedAddress}?chain=ethereum&page_size=50&include=contract_information&contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b`
+                let testUrl=`https://api.nftport.xyz/v0/accounts/0x5552d7464daf5b2f3ffb3f8f4bef9e9b0ee2f315?chain=ethereum&page_size=50&include=contract_information&contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b`
+                let res = await fetch(testUrl, {
                     headers: {
                         'Authorization': 'a89e57e3-d7e4-4cef-93ff-b7e037b8dcc0',
                         'accept': 'application/json'

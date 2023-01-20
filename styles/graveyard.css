@@ -3,6 +3,7 @@
     --color2: white;
 }
 body{
+    margin: 0;
     image-rendering: pixelated;
     background-color: var(--color1);
     font-size: 16px;
@@ -31,9 +32,13 @@ header .logo img{
     float: right;
     padding:10px;
 }
+.overlay{
+    cursor: pointer;
+    background-color: rgba(0 0 0 0.5);
+}
 .loader{
     margin: 128px 19vw;
-    width: 4vw;
+    width: 120px;
 }
 .button{
     font-size: 16px;
@@ -60,6 +65,7 @@ header .logo img{
     width: 990px;
     left: calc(50% - 495px);
     top:96px;
+    
 }
 .frame #dungeon{
     box-sizing: border-box;

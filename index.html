@@ -146,7 +146,7 @@
                 `
             },
             async dead(){
-                let text = `
+                graveyard.scrollText = `
                     Nameless ... only whispered as to what it leaves behind... The crawling chaos... . Ancient and formless,
                     a dark magic infecting and consuming everything in it's way. The cursed scrolls of Murgh Argh-Nagh,
                     the Everdamned, claim that the world would have been torn from inside. Its bowels holding the skies and
@@ -162,10 +162,15 @@
                     Frozen in time, a terrifying painting of unimaginable danger, but still - a mere painting. Countless skulls were
                     staring with their hollow eyes, festering and rotting, the source of their power seemingly snued out.
                     Whisper of life that had only just been uttered grew quieter and quieter until... Silence.`
-                    let scrollPointer=0
-                let scroll = setInterval(()=>{
-                    document.getElementById("scrollText").innerHTML+=text[scrollPointer]
-                    scrollPointer++
+                    graveyard.scrollPointer=0
+                graveyard.scroll = setInterval(()=>{
+                    console.log("s")
+                    if(document.getElementById("scrollText") && graveyard.scrollPointer<graveyard.scrollText.length){
+                        document.getElementById("scrollText").innerHTML+=graveyard.scrollText[graveyard.scrollPointer]
+                    }else{
+                        graveyard.scroll = clearInterval()
+                    }
+                    graveyard.scrollPointer++
                 }, 25)
                 return `
                 <img src="./assets/ui/title_main.png" class="title" />
@@ -198,7 +203,7 @@
             async fetchNFTs() {
                 let url=`https://api.nftport.xyz/v0/accounts/${window.ethereum.selectedAddress}?chain=ethereum&page_size=50&include=contract_information&contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b`
                 let testUrl=`https://api.nftport.xyz/v0/accounts/0x5552d7464daf5b2f3ffb3f8f4bef9e9b0ee2f315?chain=ethereum&page_size=50&include=contract_information&contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b`
-                let res = await fetch(testUrl, {
+                let res = await fetch(url, {
                     headers: {
                         'Authorization': 'a89e57e3-d7e4-4cef-93ff-b7e037b8dcc0',
                         'accept': 'application/json'

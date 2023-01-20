@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,74 +9,136 @@
     <link rel="icon" type="image/x-icon" href="./assets/ui/favicon.gif">
     <link rel="stylesheet" href="./styles/graveyard.css">
 </head>
+
 <body>
     <header>
         <div class="logo" onclick="window.location.href = 'https://skulldungeon.io/'">
             <img src="./assets/logo.png">
         </div>
 
-        <div class="button"  onclick="lux.changePage('dead')">#DEAD</div>
+        <div class="button" onclick="lux.changePage('dead')">#DEAD</div>
         <div class="button" onclick="lux.changePage('graveyard')">GRAVEYARD</div>
-        <div class="button" onclick="window.location.href = 'https://opensea.io/collection/skull-dungeon-genesis'">MARKET</div>
-        <div id="address" onclick="window.location.href = 'https://opensea.io/account'"></div>
+        <div class="button" onclick="window.location.href = 'https://opensea.io/collection/skull-dungeon-genesis'">
+            MARKET</div>
+        <div class="buttons flex">
+            <audio autoplay id="music">
+                <source src="./assets/music/Invitation.mp3" type="audio/mpeg">
+            </audio>
+                <a href="https://twitter.com/SkullDungeonNFT" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512" width="25">
+                        <path fill="white"
+                            d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                        </path>
+                    </svg></a>
+                <a href="http://discord.gg/skulldungeon" target="_blank">
+                    <div class="qodef-m-holder" style="align-items:center">
+                        <div class="qodef-m-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="28">
+                                <path fill="white"
+                                    d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://opensea.io/collection/skull-dungeon-genesis" target="_blank">
+                    <div class="qodef-m-holder" style="align-items:center">
+                        <div class="qodef-m-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.48 49.93" width="24">
+                                <path fill="white"
+                                    d="M22.2,46.51l.2-.3L34.1,27.89a.4.4,0,0,1,.7.05c2,4.39,3.65,9.84,2.86,13.23a20.84,20.84,0,0,1-2.31,5c-.13.25-.28.5-.43.74a.42.42,0,0,1-.34.18h-12A.4.4,0,0,1,22.2,46.51Z"
+                                    transform="translate(-18.9 -18)"></path>
+                                <path fill="white"
+                                    d="M74.38,49.91v2.9a.41.41,0,0,1-.25.38c-.91.39-4,1.82-5.3,3.61C65.54,61.38,63,67.93,57.4,67.93H34A15.08,15.08,0,0,1,18.9,52.83v-.27a.4.4,0,0,1,.4-.4H32.38a.44.44,0,0,1,.42.5,4.5,4.5,0,0,0,.47,2.51,4.61,4.61,0,0,0,4.12,2.56h6.48V52.67h-6.4a.41.41,0,0,1-.34-.64c.07-.11.15-.22.24-.34.6-.86,1.47-2.2,2.33-3.72a31.19,31.19,0,0,0,1.61-3.22c.09-.2.17-.41.24-.61s.25-.67.35-1,.16-.57.24-.84a13.54,13.54,0,0,0,.31-2.95c0-.41,0-.83-.06-1.23s-.07-.88-.13-1.32-.1-.77-.18-1.17c-.09-.59-.22-1.17-.37-1.76l-.05-.22c-.11-.4-.2-.79-.33-1.19C41,31.2,40.54,30,40.1,28.82c-.16-.46-.35-.9-.53-1.34-.28-.66-.55-1.26-.81-1.83-.13-.26-.24-.49-.35-.73s-.25-.55-.38-.81-.2-.38-.28-.57L37,22.08a.26.26,0,0,1,.29-.37l5,1.34h0l.66.18.71.21.27.07V20.57a2.54,2.54,0,0,1,4.34-1.82A2.59,2.59,0,0,1,49,20.57v4.36l.53.15.12.06.55.42c.18.15.38.33.62.51.48.39,1,.88,1.67,1.45.17.14.33.29.48.44.8.75,1.7,1.63,2.56,2.6q.36.4.72.84c.24.29.5.59.72.88s.6.79.88,1.21l.4.6c.35.53.66,1.08,1,1.63.12.26.25.53.36.81a11,11,0,0,1,.75,2.23,2.29,2.29,0,0,1,.11.49v0a3.94,3.94,0,0,1,.09.7,7.21,7.21,0,0,1-.13,2.31,9.26,9.26,0,0,1-.27,1c-.11.32-.22.64-.36,1a12.66,12.66,0,0,1-1,1.89c-.12.22-.27.46-.42.68s-.33.46-.48.68-.42.56-.64.82a8.32,8.32,0,0,1-.62.79c-.31.36-.61.71-.92,1s-.38.44-.58.64-.41.42-.59.61-.57.55-.79.75l-.51.46a.38.38,0,0,1-.27.1H49v5.06h5a4.58,4.58,0,0,0,3-1.12,34.6,34.6,0,0,0,3.07-3,.35.35,0,0,1,.19-.12l13.69-3.95A.4.4,0,0,1,74.38,49.91Z"
+                                    transform="translate(-18.9 -18)"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://skulldungeon.medium.com/skull-dungeon-white-paper-885421eb9f72" target="_blank">
+                    <div class="qodef-m-holder" style="align-items:center">
+                        <div class="qodef-m-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 4 30 30" width="30px" height="30px">
+                                <path fill="white"
+                                    d="M8.5 7A8.5 8.5 0 108.5 24 8.5 8.5 0 108.5 7zM22 8A4 7.5 0 1022 23 4 7.5 0 1022 8zM28.5 9A1.5 6.5 0 1028.5 22 1.5 6.5 0 1028.5 9z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="address" onclick="window.location.href = 'https://opensea.io/account'"></div>
     </header>
     <content>
         <div class="frame"><img src="./assets/ui/frame_main.png" />
             <div id="dungeon">
-                
+
                 <img src="./assets/ui/spinning_skull.gif" class="loader">
+            </div>
+        </div>
+        <div id="popup" style="display: none;">
+
+            <div class="frame"><img src="./assets/ui/popup_small.png" />
             </div>
         </div>
     </content>
     <footer></footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
 
     <script>
-        let lux={
-            async changePage(page, f){
-                if(f){
-                     document.getElementById("dungeon").innerHTML= await elements[page]()
+        let lux = {
+            async changePage(page, f) {
+                if (f) {
+                    document.getElementById("dungeon").innerHTML = await elements[page]()
                     return
 
                 }
-                document.getElementById("dungeon").innerHTML=elements[page]
+                document.getElementById("dungeon").innerHTML = elements[page]
+            },
+            popup(element, close) {
+                document.getElementById("popup").style = "display:initial;"
             }
         }
-        let elements={
-            graveyard:`
+        let elements = {
+            graveyard: `
                 <img src="./assets/ui/title_main.png" class="title" />
                 
-                <img src="./assets/ui/bg_temp.png" class="bg" />
+                <img src="./assets/ui/graveyard_entrance.gif" class="bg" />
                 <div class="button main" onclick="lux.changePage('graveyardStaking', 1)">Enter</div>
                 
             `,
-            async graveyardStaking(){
-                let res= await graveyard.fetchNFTs()
-                let r="";
-                for(n in res.nfts){
-                    r+=`<div class="skull">
+            async graveyardStaking() {
+
+                document.getElementById("music").play()
+                let res = await graveyard.fetchNFTs()
+                let r = "";
+                for (n in res.nfts) {
+                    r += `<div class="skull">
                             <img src="https://ipfs.io/ipfs/QmRfVvhHQVyPaE5aLEt11CRQfrghmfAwecwd8xj1PhLHSz/${res.nfts[n].token_id}" />
                             #${res.nfts[n].token_id}
-                            <div class="button simple">Dig Up</div>
                         </div>`
                 }
                 return `
-                    <div class="flex">
-                        <div class="flex2">
+                    <div>
+                        <div id="skulls" class="">
                             ${r}
                         </div>
-                        <div>
-                <div class="button" onclick="lux.changePage('graveyardStaking', 1)">Bury All</div>
-                <div class="button" onclick="lux.changePage('graveyardStaking', 1)">Gemii</div>
-                <div class="button" onclick="lux.changePage('graveyardStaking', 1)">Inventory</div>
-                <div class="button" onclick="lux.changePage('graveyardStaking', 1)">FAQ</div>
+                        <div class="leftSide">
+                            <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">Bury</div>
+                            <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">Dig Up</div>
+                            <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">FAQ</div>
+                        </div>
+                        <div class="rightSide">
+                            <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">Gemii</div>
+                            <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">Inventory</div>
+                            <div class="button v2" onclick="lux.changePage('graveyardStaking', 1)">Buy Skull</div>
                         </div>
 
                 `
             },
-            dead:`
+            dead: `
                 <img src="./assets/ui/title_main.png" class="title" />
                 <p>
                     Nameless ... only whispered as to what it leaves behind... The crawling chaos... . Ancient and formless,
@@ -94,27 +157,29 @@
                     staring with their hollow eyes, festering and rotting, the source of their power seemingly snued out.
                     Whisper of life that had only just been uttered grew quieter and quieter until... Silence.</p>
             `,
-            market:`
+            market: `
                 <img src="./assets/ui/spinning_skull.gif" class="loader">
+            `,
+            connect: `
+                <h3>Please Connect your wallet first</h3>
             `
-
         }
-        let graveyard={
-            async setup(){
+        let graveyard = {
+            async setup() {
                 window.web3 = new Web3(window.ethereum);
                 await window.ethereum.enable();
-                graveyard.address= window.ethereum.selectedAddress
-                document.getElementById("address").innerHTML=`${graveyard.address[0]}${graveyard.address[1]}${graveyard.address[2]}${graveyard.address[3]}${graveyard.address[4]}${graveyard.address[5]}${graveyard.address[6]}...${graveyard.address[38]}${graveyard.address[39]}${graveyard.address[40]}${graveyard.address[41]}`
+                graveyard.address = window.ethereum.selectedAddress
+                document.getElementById("address").innerHTML = `${graveyard.address[0]}${graveyard.address[1]}${graveyard.address[2]}${graveyard.address[3]}${graveyard.address[4]}${graveyard.address[5]}${graveyard.address[6]}...${graveyard.address[38]}${graveyard.address[39]}${graveyard.address[40]}${graveyard.address[41]}`
                 lux.changePage("graveyard")
             },
-            async fetchNFTs(){
+            async fetchNFTs() {
 
-                let res = await fetch(`https://api.nftport.xyz/v0/accounts/${window.ethereum.selectedAddress}?chain=ethereum&page_size=50&include=contract_information&contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b`,{
+                let res = await fetch(`https://api.nftport.xyz/v0/accounts/	0x5552d7464daf5b2f3ffb3f8f4bef9e9b0ee2f315?chain=ethereum&page_size=50&include=contract_information&contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b`, {
                     headers: {
-                        'Authorization':'a89e57e3-d7e4-4cef-93ff-b7e037b8dcc0',
-                        'accept':'application/json'
+                        'Authorization': 'a89e57e3-d7e4-4cef-93ff-b7e037b8dcc0',
+                        'accept': 'application/json'
                     },
-                    
+
                     mode: 'cors', // no-cors, *cors, same-origin
                     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
                     credentials: 'same-origin'
@@ -122,56 +187,10 @@
                 let resTest = await res.json();
                 console.log(resTest)
                 return resTest;
-            },
-            async getAssets(){
-                if(!window.ethereum){
-                    await setTimeout(()=>{
-                        alert("Please connect web3 provider")
-                        
-                    },1000)
-                }
-                if(!window.ethereum.selectedAddress){
-                    await window.ethereum.enable()
-                }
-                let r=await fetch(`https://api.opensea.io/api/v1/assets?asset_contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b&owner=${window.ethereum.selectedAddress}`, {
-                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                    credentials: 'same-origin', // include, *same-origin, omit
-                    headers: {
-                    'Content-Type': 'application/json',
-                    'X-API-KEY': '29930174fbb94c91bd30a31e79153922'
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    redirect: 'follow', // manual, *follow, error
-                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                });
-                let a=await r.json()
-                play.assets=a.assets
-                console.log(play.assets)
-                let skullSelect=`
-                
-                `
-                for(asset in play.assets){
-                    skullSelect+=elements.skull(asset)
-                }
-                skullSelect+=`
-                    <div class="skull pointer rounded center topBottomPad" onclick="window.location='https://opensea.io/collection/playsk8-official'">
-                        
-                        <h1>+</h1>
-                        <h2>Add Skull</h2>
-                        <img src="./assets/opensea.webp" />
-                        
-                    </div>
-                `
-                document.getElementById("skulls").innerHTML=`
-                    Please select your skull.
-                    <div class="subtle">You currently have x SKULLS</div>
-                    <div id="skullSelect">${skullSelect}</div>
-                `
-            },
+            }
         }
         graveyard.setup();
     </script>
 </body>
+
 </html>

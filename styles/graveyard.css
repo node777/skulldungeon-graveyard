@@ -9,6 +9,10 @@ body{
     color: var(--color2);
     font-family: PIXEARG, monospace, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+a{
+    text-decoration: none; 
+}
+
 header{
     background-color: rgb(53, 53, 53);
     display: flex;
@@ -25,7 +29,6 @@ header .logo img{
 #address{
     cursor: pointer;
     float: right;
-    margin-left: 20%;
     padding:10px;
 }
 .loader{
@@ -37,10 +40,15 @@ header .logo img{
     cursor: pointer;
     padding: 10px;
 }
+.buttons{
+    margin-left: 10vw;
+}
+.buttons>a svg{
+    margin-top: 11px;
+}
 .title{
-    width: 30vw;
-    margin-left: 6vw;
-    margin-top:32px;
+    width: 592px;
+    margin: 38px auto;
 
     -webkit-filter: drop-shadow(6px 6px 0 black)
                     drop-shadow(-6px -6px 0 black);
@@ -49,29 +57,38 @@ header .logo img{
 }
 .frame>img, .frame #dungeon{
     position: absolute;
-    width: 50vw;
-    left: 25vw;
-    top:64px;
+    width: 990px;
+    left: calc(50% - 495px);
+    top:96px;
 }
 .frame #dungeon{
-    padding: 4vw;
     box-sizing: border-box;
+    padding: 78px 54px;
+    text-align: center;
 }
 .frame .button{
     background-image: url("../assets/ui/button_main.png");
     
     margin: auto;
-    width: 164px;
-    height: 90px;
+    width: 246px;
+    height: 135px;
     background-size: 100%;
-    padding: 32px;
+    padding: 56px;
     text-align: center;
     box-sizing: border-box;
 }
+.frame .button.v2{
+    background-image: url("../assets/ui/buttons_side.png");
+    width: 312px;
+    height: 176px;
+    background-size: 100%;
+    padding: 74px;
+    margin: 16px 0;
+}
 .button.main{
     position: absolute;
-    top: calc(34.5vw - 45px);
-    left: calc(25vw - 82px);
+    top: 618px;
+    left: 372px;
 }
 .button.simple{
     background-image: none;
@@ -84,35 +101,74 @@ header .logo img{
     
 
 }
+.leftSide{
+    position: absolute;
+    left: calc(-25vw + 88px);
+    top: 64px;
+
+}
+.rightSide{
+    position: absolute;
+    right: calc(-25vw + 88px);
+    top: 64px;
+
+}
+#skulls{
+    
+    height: 600px;
+    overflow: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+#skulls::-webkit-scrollbar {
+    display: none;
+  }
 .skull{
-    background-color: gray;
-    width: 128px;
+    background-image: url(../assets/ui/skull_frame.png);
+    margin: 32px;
+    width: 153px;
+    height: 192px;
+    background-size: 100%;
+    padding: 4px;
     text-align: center;
-    margin: 16px;
+    box-sizing: border-box;
+    cursor: pointer;
+    float: left;
 }
 .skull img{
-    width: 80%;
-    margin: 10%;
+    width: 117px;
+    margin: 14px;
 }
 .flex{
     display: flex;
 }
-.flex>div{
+.flex>*{
     flex:1;
 }
 .flex>.flex2{
     flex:2;
 }
 .bg{
-    width: 92%;
+    width: 920px;
     position: absolute;
+    top: 28px;
     left: 34px;
     z-index: -1;
+    clip-path: polygon(0% 8%,100% 8%,100% 100%,0% 100%);
+}
+.qodef-m-holder, .qodef-m-icon{
+    float: left;
+    width: max-content;
 }
 p{
     font-size: 8px;
     line-height: 3;
     letter-spacing: 2px;
+    text-align: left;
+    margin: 0 16px;
+}
+h1, h2, h3{
+    font-family: PixEng;
 }
 @font-face {
     font-family: PixEng;

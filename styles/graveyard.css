@@ -1,6 +1,8 @@
 :root{
     --color1: black;
     --color2: white;
+    --color3: #66bf75;
+    --color4: #202121;
 }
 body{
     margin: 0;
@@ -16,22 +18,37 @@ a{
 
 header{
     margin-top: 8px;
-    background-color: rgb(53, 53, 53);
+    background-color: var(--color4);
     display: flex;
+    font-family: techno;
     flex-wrap: wrap;
 }
 header>*{
     flex: 1;
 }
 header .logo img{
-    height: 28px;
+    height: 25px;
     cursor: pointer;
-    margin: 8px;
+    margin: 2px 92px;
 }
+footer{
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: techno;
+    padding-bottom: 32px;
+}
+
 #address{
     cursor: pointer;
     float: right;
-    padding:10px;
+    padding:3px 10px;
+}
+.bar{
+    background-color: var(--color4);
+    margin:16px auto;
 }
 .overlay{
     cursor: pointer;
@@ -44,22 +61,27 @@ header .logo img{
 .button{
     font-size: 16px;
     cursor: pointer;
-    padding: 10px;
+    padding: 4px;
+}
+.button:hover{
+    color: #66bf75;
 }
 .buttons{
-    margin-left: 10vw;
+    margin-left: 28vw;
+    height: min-content;
+    text-align: left;
 }
 .buttons>a svg{
-    margin-top: 11px;
+    margin-top: 2px;
 }
 .title{
-    width: 592px;
+    width: 444px;
     margin: 38px auto;
 
-    -webkit-filter: drop-shadow(6px 6px 0 black)
+    /* -webkit-filter: drop-shadow(6px 6px 0 black)
                     drop-shadow(-6px -6px 0 black);
     filter: drop-shadow(6px 6px 0 black) 
-            drop-shadow(-6px -6px 0 black);
+            drop-shadow(-6px -6px 0 black); */
 }
 .frame>img, .frame #dungeon{
     position: absolute;
@@ -86,10 +108,10 @@ header .logo img{
 }
 .frame .button.v2{
     background-image: url("../assets/ui/buttons_side.png");
-    width: 312px;
-    height: 176px;
+    width: 234px;
+    height: 134px;
     background-size: 100%;
-    padding: 74px;
+    padding: 52px;
     margin: 16px 0;
 }
 .button.main{
@@ -110,20 +132,21 @@ header .logo img{
 }
 .leftSide{
     position: absolute;
-    left: calc(-25vw + 88px);
-    top: 64px;
+    left: calc(-25vw + 210px);
+    top: 128px;
 
 }
 .rightSide{
     position: absolute;
-    right: calc(-25vw + 88px);
-    top: 64px;
+    right: calc(-25vw + 210px);
+    top: 128px;
 
 }
 #skulls{
     
     height: 600px;
     overflow: auto;
+    padding: 0 134px;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
@@ -132,7 +155,7 @@ header .logo img{
   }
 .skull{
     background-image: url(../assets/ui/skull_frame.png);
-    margin: 32px;
+    margin: 0;
     width: 153px;
     height: 192px;
     background-size: 100%;
@@ -180,6 +203,9 @@ h1, h2, h3{
     margin: 4px;
     font-weight: 100;
 }
+h1{
+    margin: 32px auto;
+}
 @font-face {
     font-family: PixEng;
     src: url("../fonts/Pixeled\ English\ Font.ttf");
@@ -187,4 +213,8 @@ h1, h2, h3{
 @font-face {
     font-family: PIXEARG;
     src: url("../fonts/PIXEARG_.TTF");
+}
+@font-face {
+    font-family: techno;
+    src: url("../fonts/technofosiano.ttf");
 }

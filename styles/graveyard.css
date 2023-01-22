@@ -17,11 +17,15 @@ a{
 }
 
 header{
-    margin-top: 8px;
+    margin-top: 28px;
     background-color: var(--color4);
     display: flex;
     font-family: techno;
     flex-wrap: wrap;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 header>*{
     flex: 1;
@@ -83,6 +87,10 @@ footer{
     filter: drop-shadow(6px 6px 0 black) 
             drop-shadow(-6px -6px 0 black); */
 }
+#frameImg{
+    
+    z-index: 10;
+}
 .frame>img, .frame #dungeon{
     position: absolute;
     width: 990px;
@@ -118,6 +126,7 @@ footer{
     position: absolute;
     top: 618px;
     left: 372px;
+    z-index: 12;
 }
 .button.simple{
     background-image: none;
@@ -144,7 +153,7 @@ footer{
 }
 #skulls{
     
-    height: 600px;
+    height: 540px;
     overflow: auto;
     padding: 0 134px;
     -ms-overflow-style: none;  /* IE and Edge */
@@ -164,6 +173,52 @@ footer{
     box-sizing: border-box;
     cursor: pointer;
     float: left;
+}
+.overlay{
+    background-color: rgba(0, 0, 0, 0.471);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.clickableOverlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    cursor: pointer;
+}
+#popupFrame{
+   position: absolute; 
+}
+.popupFrame{
+    position: absolute;
+    left: calc(50vw - 267px);
+    top: 300px;
+    width: 534px;
+    z-index: 9;
+}#popup{
+    position: absolute;
+    background-color: black;
+    left: calc(50vw - 250px);
+    top: 312px;
+    width: 500px;
+    height: 180px;
+    z-index: 8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popupFrame img{
+    width: 534px;
+    z-index: 9;
 }
 .skull img{
     width: 117px;
@@ -204,7 +259,13 @@ h1, h2, h3{
     font-weight: 100;
 }
 h1{
-    margin: 32px auto;
+    margin: 34px auto;
+    font-size: 48px;
+}
+#popup h3{
+    font-size: 36px;
+    text-align: center;
+    margin: 58px auto;
 }
 @font-face {
     font-family: PixEng;

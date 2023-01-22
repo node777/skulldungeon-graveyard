@@ -87,11 +87,15 @@ footer{
     filter: drop-shadow(6px 6px 0 black) 
             drop-shadow(-6px -6px 0 black); */
 }
+.above{
+    z-index: 22;
+}
 #frameImg{
     user-select: none;
     pointer-events: none;
     z-index: 10;
 }
+
 .frame>img, .frame #dungeon{
     position: absolute;
     width: 990px;
@@ -115,7 +119,7 @@ footer{
     text-align: center;
     box-sizing: border-box;
 }
-.frame .button.v2{
+.button.v2{
     background-image: url("../assets/ui/buttons_side.png");
     width: 234px;
     height: 134px;
@@ -128,6 +132,19 @@ footer{
     top: 618px;
     left: 372px;
     z-index: 12;
+}
+#popup .button.button.main{
+    background-image: url("../assets/ui/button_main.png");
+    
+    margin: auto;
+    width: 246px;
+    height: 135px;
+    background-size: 100%;
+    padding: 56px;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 22;
+    position: fixed;
 }
 .button.simple{
     background-image: none;
@@ -235,12 +252,12 @@ footer{
     flex:2;
 }
 .bg{
-    width: 920px;
+    width: 895px;
     position: absolute;
-    top: 28px;
-    left: 34px;
+    top: 45px;
+    left: 48px;
     z-index: -1;
-    clip-path: polygon(0% 8%,100% 8%,100% 100%,0% 100%);
+    clip-path: polygon(0% 5%,100% 5%,100% 100%,0% 100%);
 }
 .qodef-m-holder, .qodef-m-icon{
     float: left;

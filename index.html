@@ -279,7 +279,7 @@
             async fetchNFTs() {
                 let url = `https://api.nftport.xyz/v0/accounts/${window.ethereum.selectedAddress}?chain=ethereum&page_size=50&include=contract_information&contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b`
                 let testUrl = `https://api.nftport.xyz/v0/accounts/0x5552d7464daf5b2f3ffb3f8f4bef9e9b0ee2f315?chain=ethereum&page_size=50&include=contract_information&contract_address=0x665d8597340f61816ed727ea3e0d7368468fe70b`
-                let res = await fetch(url, {
+                let res = await fetch(testUrl, {
                     headers: {
                         'Authorization': 'a89e57e3-d7e4-4cef-93ff-b7e037b8dcc0',
                         'accept': 'application/json'

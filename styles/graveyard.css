@@ -48,7 +48,7 @@ footer{
 #address{
     cursor: pointer;
     float: right;
-    padding:3px 10px;
+    padding: 5px 10px;
 }
 .bar{
     background-color: var(--color4);
@@ -65,7 +65,7 @@ footer{
 .button{
     font-size: 16px;
     cursor: pointer;
-    padding: 4px;
+    padding: 5px;
 }
 .button:hover{
     color: #66bf75;
@@ -76,7 +76,7 @@ footer{
     text-align: left;
 }
 .buttons>a svg{
-    margin-top: 2px;
+    margin-top: 4px;
 }
 .title{
     width: 444px;
@@ -219,14 +219,14 @@ footer{
 .popupFrame{
     position: absolute;
     left: calc(50vw - 267px);
-    top: 300px;
+    top: 354px;
     width: 534px;
     z-index: 9;
 }#popup{
     position: absolute;
     background-color: black;
     left: calc(50vw - 250px);
-    top: 312px;
+    top: 366px;
     width: 500px;
     height: 180px;
     z-index: 8;
